@@ -8,7 +8,7 @@ import {addProductCount, addToCart, getProducts} from "../../redux/product-reduc
 class ProductsContainer extends React.Component {
 
     state = {
-        count: 0
+        currentCount: 0
     };
 
     componentDidMount() { // элемент ЖЦ, вызывается после отрисовки компоненты.
@@ -17,16 +17,22 @@ class ProductsContainer extends React.Component {
 
     }
 
+    getInputRef = (node) => {
+        debugger;
+        //return this.setState({currentCount: e.target.value}); // catch
+    }
+
 
     render() {
         return ( <Products
             {...this.props}
-            count={this.state.count}
+            handleChange={this.handleChange}
         /> )
     }
 }
 
 let mapStateToProps = (state) => {
+   // debugger;
     return {
         products: state.productPage.products
     }

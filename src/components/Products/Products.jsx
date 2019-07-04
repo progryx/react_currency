@@ -2,14 +2,14 @@ import React from "react";
 import {addProductCount} from "../../redux/product-reducer";
 
 
-const Products = (props) => {
-   //debugger;
-
+class Products extends React.Component {
+   debugger;
+    render () {
     return (
         <div className='container'>
             <div className="row">
                 {
-                    props.products.map(p =>
+                    this.props.products.map(p =>
                         <div className={"card col-3"} style={{width: '18rem', margin: '5px'}}>
                             <img className={"card-img-top"} src={p.img}/>
                             <div className={"card-body"}>
@@ -18,7 +18,7 @@ const Products = (props) => {
                                     <div className={"form-group row"}>Price: {p.price}</div>
                                     <div className={'form-group row'}>
                                         <label htmlFor="quantity">Quantity:</label>
-                                        <input className={'form-control'} name='quantity' placeholder='0' onInput={() => {props.addProductCount(p.id)}}  type="number" min='1' max='10' step='1'/>
+                                        <input className={'form-control'} name='quantity' placeholder='0'  type="number" min='1' max='10' step='1'/>
                                     </div>
                                     <div className={'form-group row'}>
                                         <button onClick={ () => {
@@ -31,7 +31,7 @@ const Products = (props) => {
                     )}
             </div>
         </div>
-    )
+    )}
 };
 
 export default Products;
